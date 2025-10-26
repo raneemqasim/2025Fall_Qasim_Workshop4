@@ -50,6 +50,7 @@ public class UserInterface {
                     processAddVehicleRequest();
                     break;
                 case "9":
+                    processRemoveVehicleRequest();
                     break;
                 case "10":
                     System.out.println("Thank you for using the car dealership app, goodbye!");
@@ -188,8 +189,14 @@ public class UserInterface {
 
         Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
         dealership.addVehicle(vehicle);
+        DealershipFileManager.saveDealership(dealership, filePath);
     }
 
-    //processRemoveVehicleRequest();
+    public void processRemoveVehicleRequest(){
+        System.out.println("Please enter the VIN of the vehicle to remove");
+        int vin = Integer.parseInt(scanner.nextLine());
+        dealership.removeVehicle(vin);
+        DealershipFileManager.saveDealership(dealership, filePath);
+    }
 
     }

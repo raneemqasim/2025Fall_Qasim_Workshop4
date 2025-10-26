@@ -8,6 +8,7 @@ public class Main {
         System.out.println("Please input a file path to load a dealership: ");
         String filePath = scanner.nextLine();
 
+        //do we need a try catch for inputting the wrong file path? right now the program just continues like nothing is wrong
         UserInterface ui = new UserInterface(filePath);
         ui.display();
 

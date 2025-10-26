@@ -50,9 +50,9 @@ public class Dealership {
             if(vehicle.getPrice() > min && vehicle.getPrice() < max){
                 vehiclesByPrice.add(vehicle);
             }
-            if (vehiclesByPrice.isEmpty()){
-                System.out.println("There are no vehicles in that price range");
-            }
+        }
+        if (vehiclesByPrice.isEmpty()){
+            System.out.println("There are no vehicles in that price range");
         }
         //can we use collections.sort to sort the list before we return it?
         return vehiclesByPrice;
@@ -64,9 +64,9 @@ public class Dealership {
             if(vehicle.getMake().equalsIgnoreCase(make) || vehicle.getModel().equalsIgnoreCase(model)){
                 vehiclesByMakeModel.add(vehicle);
             }
-            if (vehiclesByMakeModel.isEmpty()){
-                System.out.println("There are no vehicles of that make and model");
-            }
+        }
+        if (vehiclesByMakeModel.isEmpty()){
+            System.out.println("There are no vehicles of that make and model");
         }
         return vehiclesByMakeModel;
     }
@@ -77,9 +77,9 @@ public class Dealership {
             if(vehicle.getYear() > min && vehicle.getYear() < max){
                 vehiclesByYear.add(vehicle);
             }
-            if (vehiclesByYear.isEmpty()){
-                System.out.println("There are no vehicles from those years");
-            }
+        }
+        if (vehiclesByYear.isEmpty()){
+            System.out.println("There are no vehicles from those years");
         }
         return vehiclesByYear;
     }
@@ -90,9 +90,9 @@ public class Dealership {
             if(vehicle.getColor().equalsIgnoreCase(color)){
                 vehiclesByColor.add(vehicle);
             }
-            if (vehiclesByColor.isEmpty()){
-                System.out.println("There are no vehicles in that color");
-            }
+        }
+        if (vehiclesByColor.isEmpty()){
+            System.out.println("There are no vehicles in that color");
         }
         return vehiclesByColor;
     }
@@ -103,9 +103,9 @@ public class Dealership {
             if(vehicle.getOdometer() > min && vehicle.getOdometer() < max){
                 vehiclesByMileage.add(vehicle);
             }
-            if (vehiclesByMileage.isEmpty()){
-                System.out.println("There are no vehicles with that mileage range");
-            }
+        }
+        if (vehiclesByMileage.isEmpty()){
+            System.out.println("There are no vehicles with that mileage range");
         }
         return vehiclesByMileage;
     }
@@ -116,9 +116,9 @@ public class Dealership {
             if(vehicle.getVehicleType().equalsIgnoreCase(vehicleType)){
                 vehiclesByType.add(vehicle);
             }
-            if (vehiclesByType.isEmpty()){
-                System.out.println("There are no vehicles of that type");
-            }
+        }
+        if (vehiclesByType.isEmpty()){
+            System.out.println("There are no vehicles of that type");
         }
         return vehiclesByType;
     }
@@ -130,6 +130,15 @@ public class Dealership {
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
     }
-    //removeVehicle(vehicle)
+    public void removeVehicle(int vin){
+        Vehicle vehicleToRemove = null;
+        for(Vehicle vehicle : inventory){
+            if(vehicle.getVin() == vin){
+                vehicleToRemove = vehicle;
+                break;
+            }
+        }
+        inventory.remove(vehicleToRemove);
+    }
 
     }

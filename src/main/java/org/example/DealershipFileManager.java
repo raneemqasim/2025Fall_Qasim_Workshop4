@@ -64,6 +64,7 @@ public class DealershipFileManager {
     }
     //saveDealership(dealership) This method will overwrite the inventory.csv file with the
     // current dealership information and inventory list.
+    //is this meant to be static?
     public static void saveDealership(Dealership dealership, String filePath){
         try{
             FileWriter fileWriter = new FileWriter(filePath);
