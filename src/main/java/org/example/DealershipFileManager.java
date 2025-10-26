@@ -18,13 +18,13 @@ public class DealershipFileManager {
             BufferedReader bufferedReader = new BufferedReader(fr);
 
             //skip the first line/set the dealership properties with it
-            //Line 1: Dealership Name|Address|Phone
+            //line 1 dealership name|address|phone
             String firstLine = bufferedReader.readLine();
             if(firstLine != null){
                 String[] dealershipData = firstLine.split("\\|");
                 String name = dealershipData[0];
                 String address = dealershipData[1];
-                String phone = dealershipData[3];
+                String phone = dealershipData[2];
 
                 dealership = new Dealership(name, address, phone);
             }
@@ -34,7 +34,7 @@ public class DealershipFileManager {
             // using the static method addVehicle!
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                //Lines 2+: VIN|Year|Make|Model|VehicleType|Color|Odometer|Price
+                //lines2+ vin|year|make|model|vehicletype|color|odometer|price
                 String[] vehicleData = line.split("\\|");
                 int vin = Integer.parseInt(vehicleData[0]);
                 int year = Integer.parseInt(vehicleData[1]);
@@ -46,7 +46,7 @@ public class DealershipFileManager {
                 double price = Double.parseDouble(vehicleData[7]);
 
                 Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, odometer, price);
-                Dealership.addVehicle(vehicle);
+                dealership.addVehicle(vehicle);
             }
             bufferedReader.close();
         }
@@ -75,8 +75,10 @@ public class DealershipFileManager {
                     dealership.getAddress() + "|" +
                     dealership.getPhone());
 
+            //switch to the next line lol
+            bufferedWriter.newLine();
             //write the other lines
-            //Lines 2+: VIN|Year|Make|Model|VehicleType|Color|Odometer|Price
+            //lines2+ vin|year|make|model|vehicletype|color|odometer|price
             List<Vehicle> allVehicles = dealership.getAllVehicles();
             for (Vehicle vehicle : allVehicles){
                 bufferedWriter.write(vehicle.getVin() + "|" +
@@ -96,5 +98,4 @@ public class DealershipFileManager {
             System.out.println("There is a problem writing to your file");
         }
     }
-
 }

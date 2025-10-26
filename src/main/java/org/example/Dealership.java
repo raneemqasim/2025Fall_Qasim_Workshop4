@@ -8,8 +8,8 @@ public class Dealership {
     private String address;
     private String phone;
 
-    //making this a static property so other classes can access it
-    private static ArrayList<Vehicle> inventory = new ArrayList<>();
+    //okay so this was not supposed to be a static property because each dealership will have their own
+    private ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
@@ -42,6 +42,7 @@ public class Dealership {
     }
 
     //custom methods
+    //apparently these are not supposed to be static either because we are gonna use 'instance methods'
     public List<Vehicle> getVehicleByPrice(double min, double max){
         //let's loop through our inventory
         List <Vehicle> vehiclesByPrice = new ArrayList<>();
@@ -57,7 +58,7 @@ public class Dealership {
         return vehiclesByPrice;
     }
 
-    public static List<Vehicle> GetVehiclesByMakeModel(String make, String model){
+    public List<Vehicle> getVehiclesByMakeModel(String make, String model){
         List <Vehicle> vehiclesByMakeModel = new ArrayList<>();
         for(Vehicle vehicle : inventory){
             if(vehicle.getMake().equalsIgnoreCase(make) || vehicle.getModel().equalsIgnoreCase(model)){
@@ -70,7 +71,7 @@ public class Dealership {
         return vehiclesByMakeModel;
     }
 
-    public static List<Vehicle> getVehiclesByYear(int min, int max){
+    public List<Vehicle> getVehiclesByYear(int min, int max){
         List <Vehicle> vehiclesByYear = new ArrayList<>();
         for(Vehicle vehicle : inventory){
             if(vehicle.getYear() > min && vehicle.getYear() < max){
@@ -83,7 +84,7 @@ public class Dealership {
         return vehiclesByYear;
     }
 
-    public static List<Vehicle> getVehiclesByColor(String color){
+    public List<Vehicle> getVehiclesByColor(String color){
         List <Vehicle> vehiclesByColor = new ArrayList<>();
         for(Vehicle vehicle : inventory){
             if(vehicle.getColor().equalsIgnoreCase(color)){
@@ -96,7 +97,7 @@ public class Dealership {
         return vehiclesByColor;
     }
 
-    public static List<Vehicle> getVehiclesByMileage(int min, int max){
+    public List<Vehicle> getVehiclesByMileage(int min, int max){
         List <Vehicle> vehiclesByMileage = new ArrayList<>();
         for(Vehicle vehicle : inventory){
             if(vehicle.getOdometer() > min && vehicle.getOdometer() < max){
@@ -108,7 +109,8 @@ public class Dealership {
         }
         return vehiclesByMileage;
     }
-    public static List<Vehicle> getVehiclesByType(String vehicleType){
+
+    public List<Vehicle> getVehiclesByType(String vehicleType){
         List <Vehicle> vehiclesByType = new ArrayList<>();
         for(Vehicle vehicle : inventory){
             if(vehicle.getVehicleType().equalsIgnoreCase(vehicleType)){
@@ -121,14 +123,11 @@ public class Dealership {
         return vehiclesByType;
     }
 
-    //getAllVehicles() : List<Vehicle>
     public List<Vehicle> getAllVehicles(){
         return inventory;
     }
 
-    //addVehicle(vehicle)
-    //making this static so other classes can access it
-    public static void addVehicle(Vehicle vehicle){
+    public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
     }
     //removeVehicle(vehicle)

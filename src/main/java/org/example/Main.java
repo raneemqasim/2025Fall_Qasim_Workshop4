@@ -1,9 +1,16 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please input a file path to load a dealership: ");
+        String filePath = scanner.nextLine();
 
+        UserInterface ui = new UserInterface(filePath);
+        ui.display();
+
+        scanner.close();
     }
 }
