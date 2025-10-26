@@ -50,7 +50,7 @@ public class Dealership {
             if(vehicle.getPrice() > min && vehicle.getPrice() < max){
                 vehiclesByPrice.add(vehicle);
             }
-            else{
+            if (vehiclesByPrice.isEmpty()){
                 System.out.println("There are no vehicles in that price range");
             }
         }
@@ -64,8 +64,8 @@ public class Dealership {
             if(vehicle.getMake().equalsIgnoreCase(make) || vehicle.getModel().equalsIgnoreCase(model)){
                 vehiclesByMakeModel.add(vehicle);
             }
-            else{
-                System.out.println("There are no vehicles of that make or model");
+            if (vehiclesByMakeModel.isEmpty()){
+                System.out.println("There are no vehicles of that make and model");
             }
         }
         return vehiclesByMakeModel;
@@ -77,7 +77,7 @@ public class Dealership {
             if(vehicle.getYear() > min && vehicle.getYear() < max){
                 vehiclesByYear.add(vehicle);
             }
-            else{
+            if (vehiclesByYear.isEmpty()){
                 System.out.println("There are no vehicles from those years");
             }
         }
@@ -90,7 +90,7 @@ public class Dealership {
             if(vehicle.getColor().equalsIgnoreCase(color)){
                 vehiclesByColor.add(vehicle);
             }
-            else{
+            if (vehiclesByColor.isEmpty()){
                 System.out.println("There are no vehicles in that color");
             }
         }
@@ -103,8 +103,8 @@ public class Dealership {
             if(vehicle.getOdometer() > min && vehicle.getOdometer() < max){
                 vehiclesByMileage.add(vehicle);
             }
-            else{
-                System.out.println("There are no vehicles with that mileage");
+            if (vehiclesByMileage.isEmpty()){
+                System.out.println("There are no vehicles with that mileage range");
             }
         }
         return vehiclesByMileage;
@@ -116,7 +116,7 @@ public class Dealership {
             if(vehicle.getVehicleType().equalsIgnoreCase(vehicleType)){
                 vehiclesByType.add(vehicle);
             }
-            else{
+            if (vehiclesByType.isEmpty()){
                 System.out.println("There are no vehicles of that type");
             }
         }
