@@ -8,7 +8,7 @@ public class Dealership {
     private String address;
     private String phone;
 
-    //okay so this was not supposed to be a static property because each dealership will have their own
+    //okay so this was not supposed to be a static property because each dealership will have their own inventory
     private ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
@@ -42,7 +42,7 @@ public class Dealership {
     }
 
     //custom methods
-    //apparently these are not supposed to be static either because we are gonna use 'instance methods'
+    //apparently these are not supposed to be static either because we are gonna use instance methods of dealership
     public List<Vehicle> getVehicleByPrice(double min, double max){
         //let's loop through our inventory
         List <Vehicle> vehiclesByPrice = new ArrayList<>();
@@ -54,7 +54,6 @@ public class Dealership {
         if (vehiclesByPrice.isEmpty()){
             System.out.println("There are no vehicles in that price range");
         }
-        //can we use collections.sort to sort the list before we return it?
         return vehiclesByPrice;
     }
 
@@ -130,6 +129,7 @@ public class Dealership {
     public void addVehicle(Vehicle vehicle){
         inventory.add(vehicle);
     }
+
     public void removeVehicle(int vin){
         Vehicle vehicleToRemove = null;
         for(Vehicle vehicle : inventory){
@@ -139,6 +139,7 @@ public class Dealership {
             }
         }
         inventory.remove(vehicleToRemove);
+        System.out.println("Vehicle removed successfully");
     }
 
     }

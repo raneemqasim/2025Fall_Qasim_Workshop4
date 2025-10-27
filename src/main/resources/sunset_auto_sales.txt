@@ -1,0 +1,9 @@
+Sunset Auto Sales|2847 Commerce Street|214-555-8900
+20145|2008|Toyota|Camry|Sedan|Silver|89456|4995.00
+31287|2015|Chevrolet|Silverado|Truck|Black|142089|12995.00
+42639|2010|Nissan|Altima|Sedan|Blue|95632|5495.00
+55421|2014|Ford|Escape|SUV|White|78234|8995.00
+68903|2007|Honda|Accord|Sedan|Green|112458|3995.00
+74556|2016|Jeep|Wrangler|SUV|Red|65890|16995.00
+82174|2011|Toyota|Tacoma|Truck|Gray|123567|9995.00
+93288|2009|Mazda|CX-7|SUV|Black|98745|4495.00

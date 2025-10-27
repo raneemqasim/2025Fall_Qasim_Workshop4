@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class UserInterface {
-    //is this a property? is that what the diagram is saying?
+    //filePath is a property now
     private String filePath;
     private Dealership dealership;
     private Scanner scanner;
@@ -19,7 +19,7 @@ public class UserInterface {
 
     //display method
     public void display(){
-        init();
+        //init();
         boolean running = true;
         while(running){
             displayMenu();
@@ -66,8 +66,7 @@ public class UserInterface {
     }
     //display menu helper
     public void displayMenu(){
-        System.out.println("Hello! Welcome to the car dealership app!");
-        //sout("You have loaded ___ dealership)
+        System.out.println("\nHello! Welcome to the car dealership app!");
         System.out.println("Please pick a number from the following options: ");
         System.out.println("1. Get vehicles by price");
         System.out.println("2. Get vehicles by make or model");
@@ -83,10 +82,12 @@ public class UserInterface {
 
 
     //init method
-    private void init(){
-        DealershipFileManager dealershipFileManager = new DealershipFileManager();
-        this.dealership = DealershipFileManager.getDealership("src/main/resources/inventory.csv");
-    }
+    //is this redundant since I am using the constructor to load filePath?
+    //I am gonna comment it out
+    //private void init(){
+        //DealershipFileManager dealershipFileManager = new DealershipFileManager();
+        //this.dealership = DealershipFileManager.getDealership(this.filePath);
+    //}
 
     //display vehicles helper method
     private void displayVehicles(List<Vehicle> vehicles){
@@ -101,7 +102,6 @@ public class UserInterface {
         System.out.println("Please input a maximum price: ");
         String userMaximum = scanner.nextLine();
 
-        //do we need a try catch here?
         System.out.println("Here is a list of vehicles by price: ");
         displayVehicles(dealership.getVehicleByPrice(Double.parseDouble(userMinimum), Double.parseDouble(userMaximum)));
     }
@@ -112,7 +112,6 @@ public class UserInterface {
         System.out.println("Please input vehicle model (or leave blank): ");
         String userModel = scanner.nextLine();
 
-        //do we need a try catch here?
         System.out.println("Here is a list of vehicles of that make or model: ");
         displayVehicles(dealership.getVehiclesByMakeModel(userMake, userModel));
     }
@@ -123,7 +122,6 @@ public class UserInterface {
         System.out.println("Please input the maximum year for the vehicle: ");
         String userMax = scanner.nextLine();
 
-        //do we need a try catch here?
         System.out.println("Here is a list of vehicles in that range of years: ");
         displayVehicles(dealership.getVehiclesByYear(Integer.parseInt(userMin), Integer.parseInt(userMax)));
     }
@@ -132,7 +130,6 @@ public class UserInterface {
         System.out.println("Please input a color for the vehicle: ");
         String userColor = scanner.nextLine();
 
-        //do we need a try catch here?
         System.out.println("Here is a list of vehicles of that color: ");
         displayVehicles(dealership.getVehiclesByColor(userColor));
     }
@@ -143,7 +140,6 @@ public class UserInterface {
         System.out.println("Please input the maximum odometer reading for the vehicle: ");
         String userMax = scanner.nextLine();
 
-        //do we need a try catch here?
         System.out.println("Here is a list of vehicles in that odometer range: ");
         displayVehicles(dealership.getVehiclesByMileage(Integer.parseInt(userMin), Integer.parseInt(userMax)));
     }
@@ -151,7 +147,6 @@ public class UserInterface {
         System.out.println("Please input a vehicle type (SUV, sedan, car, truck): ");
         String userType = scanner.nextLine();
 
-        //do we need a try catch here?
         System.out.println("Here is a list of vehicles of that type: ");
         displayVehicles(dealership.getVehiclesByType(userType));
     }
